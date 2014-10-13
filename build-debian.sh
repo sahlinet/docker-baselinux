@@ -1,3 +1,3 @@
 cp distros/debian/Dockerfile .
-docker build -t debian-wheezy .
+docker build -t bl-debian:wheezy .
 rm Dockerfile

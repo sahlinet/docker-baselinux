@@ -1,4 +1,4 @@
 cp distros/centos/Dockerfile .
-docker build -t centos:7 .
-docker tag centos:7 centos:latest
+docker build -t bl-centos:7 .
+docker tag bl-centos:7 bl-centos:latest
 rm Dockerfile
