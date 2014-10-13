@@ -1,5 +1,5 @@
 These docker images can be used to simply start a Debian Linux container
-or to extend from for building a custom container.
+or to extend from for building a custom container. Services are started by [Supervisor][6].
 
 # Versions
 
@@ -31,7 +31,7 @@ or
 ### SSH Public Key
 
 Providing a SSH Public Key allows you to login with ssh. Provide the public key
-as environment variable ˋSSH_PUBKEYˋ. The key must be base64 encoded.
+as environment variable `SSH_PUBKEY`. The key must be base64 encoded.
 
 Example:
 
@@ -52,3 +52,4 @@ Specify the license key which is needed for the agent as environment variable `N
 [3]: http://www.centos.org/
 [4]: https://registry.hub.docker.com/u/philipsahli/centos/
 [5]: https://registry.hub.docker.com/u/philipsahli/debian/
+[6]: http://supervisord.org/index.html
