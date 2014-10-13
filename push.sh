@@ -1,4 +1,5 @@
 docker tag debian-wheezy philipsahli/debian:wheezy
+docker tag debian-wheezy philipsahli/debian:latest
 docker push philipsahli/debian:wheezy
 docker push philipsahli/debian:latest
 
