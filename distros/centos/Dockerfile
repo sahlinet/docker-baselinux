@@ -17,7 +17,6 @@ RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key && ssh-keygen -q -N 
 RUN rpm -Uvh https://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
 RUN yum install newrelic-sysmond -y
 RUN nrsysmond-config --set license_key="NOLICENSEKEYNOLICENSEKEYNOLICENSEKEYNOLI"
-ADD misc/newrelic.ini /
 ADD misc/supervisor_conf.d/newrelic.conf /etc/supervisor/conf.d/
 
 # startup

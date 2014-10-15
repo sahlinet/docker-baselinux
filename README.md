@@ -3,21 +3,34 @@ or to extend from for building a custom container. Services are started by [Supe
 
 # Versions
 
-* [Debian][2], see on [Hub][4]
-	* debian:wheezy, debian:latest
+## Debian
 
-* [CentOS][3], see on [Hub][5]
-	* centos:7, centos:latest
+See on [Docker Hub][4]
+
+* debian:wheezy, debian:latest
+
+## CentOS
+
+See on [Docker Hub][5]
+
+* centos:7, centos:latest
+
+## Ubuntu
+
+See on [Docker Hub][8]
+
+* ubuntu:precise
+* ubuntu:trusty, ubuntu:latest
 
 # Build
 
-    sh build.sh [centos, debian]
+    sh build.sh [centos, debian, ubuntu]
 
 
 # Run
 
 
-    sh run.sh [centos, debian]
+    sh run.sh [centos, debian, ubuntu]
 
 
 or
@@ -25,6 +38,7 @@ or
 
     docker run -d -p 10000:22 -t philipsahli/debian:latest
     docker run -d -p 10001:22 -t philipsahli/centos:latest
+    docker run -d -p 10002:22 -t philipsahli/ubuntu:latest
  
 
 ## Variables
@@ -47,9 +61,16 @@ Specify the license key which is needed for the agent as environment variable `N
     export NEWRELIC_LICENSE="8w9839d18d918d8189d819d9"
     docker run -d -p 10000:22 -e NEWRELIC_LICENSE=$NEWRELIC_LICENSE -t philipsahli/debian
 
+# EXTEND FROM
+
+If you want to use these images as base image, take the Dockerfile from the [Nginx-Example](https://github.com/sahlinet/docker-baselinux/tree/master/examples/nginx)
+
+* Add supervisor configuration for your services to /etc/supervisor/conf.d
+* Add a shellscript with the prefix `startup_` and suffix `.sh` (ie. `startup_nginx.sh`) to `/`. It will be executed before supervisor starts the processes
+* Expose the additional ports for your application
+
 [1]: http://newrelic.com
-[2]: https://www.debian.org
-[3]: http://www.centos.org/
 [4]: https://registry.hub.docker.com/u/philipsahli/centos/
 [5]: https://registry.hub.docker.com/u/philipsahli/debian/
 [6]: http://supervisord.org/index.html
+[8]: https://registry.hub.docker.com/u/philipsahli/ubuntu/

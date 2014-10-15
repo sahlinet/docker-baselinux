@@ -18,7 +18,6 @@ RUN wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
 RUN apt-get update
 RUN apt-get install newrelic-sysmond
 RUN nrsysmond-config --set license_key="NOLICENSEKEYNOLICENSEKEYNOLICENSEKEYNOLI"
-ADD misc/newrelic.ini /
 ADD misc/supervisor_conf.d/newrelic.conf /etc/supervisor/conf.d/
 
 # startup
