@@ -3,6 +3,13 @@ env | grep _ >> /etc/environment
 
 echo "Executing startup.sh"
 
+echo "Executing custom startup's"
+for i in $(ls -1 startup_*sh 2>/dev/null); do
+	echo "Execute $i"
+	sh $i
+	echo "Executed $i"
+done
+
 # ssh pubkey
 if [ ! -z "$SSH_PUBKEY" ]; then
 	echo "Setup SSH_PUBKEY"
