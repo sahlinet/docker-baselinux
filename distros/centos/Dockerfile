@@ -2,7 +2,7 @@ FROM centos:centos7
 
 RUN yum update -y
 RUN yum upgrade -y
-RUN yum install -y htop supervisor curl git mercurial lsof wget vim
+RUN yum install -y htop curl git mercurial lsof wget vim
 RUN yum clean all -y
 
 # sshd
