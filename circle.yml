@@ -1,0 +1,16 @@
+machine:
+  services:
+    - docker
+dependencies:
+  override:
+    - docker info
+test:
+  override:
+    - sh build-centos.sh
+    - sh build-debian.sh
+    - sh build-ubuntu.sh
+deployment:
+  trunk:
+    branch: develop
+    commands:
+      - sh push.sh
