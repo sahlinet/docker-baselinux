@@ -1,0 +1,17 @@
+machine:
+  services:
+    - docker
+dependencies:
+  override:
+    - docker info
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+test:
+  override:
+    - sh build-centos.sh
+    - sh build-debian.sh
+    - sh build-ubuntu.sh
+deployment:
+  trunk:
+    branch: develop
+    commands:
+      - sh push.sh

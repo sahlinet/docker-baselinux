@@ -1,6 +1,8 @@
 These docker images can be used to simply start a Debian Linux container
 or to extend from for building a custom container. Services are started by [Supervisor][6].
 
+[![Circle CI](https://circleci.com/gh/sahlinet/docker-baselinux/tree/master.svg?style=svg)](https://circleci.com/gh/sahlinet/docker-baselinux/tree/master)
+
 # Versions
 
 ## Debian
