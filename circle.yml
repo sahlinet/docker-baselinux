@@ -4,6 +4,7 @@ machine:
 dependencies:
   override:
     - docker info
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 test:
   override:
     - sh build-centos.sh
