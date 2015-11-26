@@ -46,6 +46,7 @@ fi
 if [ ! -z "$NEWRELIC_LICENSE" ]; then
 	nrsysmond-config --set license_key=$NEWRELIC_LICENSE
 	sed -i s/autostart=false/autostart=true/ /etc/supervisor/conf.d/newrelic.conf
+  newrelic-admin generate-config $NEWRELIC_LICENSE /newrelic.ini
 fi
 
 /usr/bin/supervisord -n
