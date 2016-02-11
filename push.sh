@@ -5,6 +5,7 @@ docker push philipsahli/debian:latest
 
 docker tag bl-ubuntu:precise philipsahli/ubuntu:precise
 docker tag bl-ubuntu:trusty philipsahli/ubuntu:trusty
+docker tag bl-ubuntu:vidid philipsahli/ubuntu:vivid
 docker tag bl-ubuntu:trusty philipsahli/ubuntu:latest
 docker push philipsahli/ubuntu:precise
 docker push philipsahli/ubuntu:trusty
