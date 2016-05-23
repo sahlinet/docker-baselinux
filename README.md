@@ -74,5 +74,4 @@ If you want to use these images as base image, take the Dockerfile from the [Ngi
 [1]: http://newrelic.com
 [4]: https://registry.hub.docker.com/u/philipsahli/centos/
 [5]: https://registry.hub.docker.com/u/philipsahli/debian/
-[6]: http://supervisord.org/index.html
 [8]: https://registry.hub.docker.com/u/philipsahli/ubuntu/
