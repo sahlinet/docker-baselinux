@@ -12,6 +12,6 @@ test:
     - sh build-ubuntu.sh
 deployment:
   trunk:
-    branch: develop
+    branch: master
     commands:
       - sh push.sh
