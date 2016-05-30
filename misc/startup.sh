@@ -25,7 +25,7 @@ done
 # newrelic
 if [ ! -z "$NEWRELIC_LICENSE" ]; then
     nrsysmond-config --set license_key=$NEWRELIC_LICENSE
-    /usr/sbin/nrsysmond -c /etc/newrelic/nrsysmond.cfg -f
+    /usr/sbin/nrsysmond -c /etc/newrelic/nrsysmond.cfg
 fi
 
 echo "Executing startup_app.sh"
