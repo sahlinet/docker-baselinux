@@ -1,10 +1,11 @@
-FROM philipsahli/debian:latest
+#FROM philipsahli/debian:latest
+FROM philipsahli/debian-v2:latest
 
 # Install Nginx
 RUN apt-get install -y nginx
-
-# Add configuration for supervisord
-ADD examples/nginx/nginx.conf /etc/supervisor/conf.d/
+ADD startup_app.sh /startup_app.sh
+RUN chmod 755 /startup_app.sh
 
 # Expose port 80
 EXPOSE 80
+

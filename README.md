@@ -44,15 +44,6 @@ or
  
 
 ## Variables
-### SSH Public Key
-
-Providing a SSH Public Key allows you to login with ssh. Provide the public key
-as environment variable `SSH_PUBKEY`. The key must be base64 encoded.
-
-Example:
-
-    export SSH_PUBKEY=ˋcat $HOME/.ssh/id_dsa.pub|base64ˋ
-    docker run -d -p 10000:22 -e SSH_PUBKEY=$SSH_PUBKEY -t philipsahli/debian
 
 ### Newrelic License Key
 
@@ -67,8 +58,7 @@ Specify the license key which is needed for the agent as environment variable `N
 
 If you want to use these images as base image, take the Dockerfile from the [Nginx-Example](https://github.com/sahlinet/docker-baselinux/tree/master/examples/nginx)
 
-* Add supervisor configuration for your services to /etc/supervisor/conf.d
-* Add a shellscript with the prefix `startup_` and suffix `.sh` (ie. `startup_nginx.sh`) to `/`. It will be executed before supervisor starts the processes
+* Add a shellscript with the prefix `startup_` and suffix `.sh` (ie. `startup_nginx.sh`) to `/`.
 * Expose the additional ports for your application
 
 [1]: http://newrelic.com

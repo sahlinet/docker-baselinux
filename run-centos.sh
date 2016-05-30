@@ -1,1 +1,1 @@
-docker run -e NEWRELIC_LICENSE=$NEWRELIC_LICENSE -d -p 10000:22 -e SSH_PUBKEY=$SSH_PUBKEY -i -t bl-centos:latest
+docker run -e NEWRELIC_LICENSE=$NEWRELIC_LICENSE -d -i -t bl-centos:latest

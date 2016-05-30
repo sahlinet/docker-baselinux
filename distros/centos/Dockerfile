@@ -5,18 +5,14 @@ RUN yum update -y && yum upgrade -y &&  yum install -y git mercurial && yum clea
 # startup
 RUN yum install -y python-setuptools
 RUN easy_install pip
-RUN pip install supervisor
-RUN echo_supervisord_conf > /etc/supervisord.conf
-RUN printf "[include]\nfiles = /etc/supervisor/conf.d/*" >> /etc/supervisord.conf
 
 # new-relic
 RUN rpm -Uvh https://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
 RUN yum install newrelic-sysmond -y
 RUN pip install newrelic
 RUN nrsysmond-config --set license_key="NOLICENSEKEYNOLICENSEKEYNOLICENSEKEYNOLI"
-ADD misc/supervisor_conf.d/newrelic.conf /etc/supervisor/conf.d/
 
-ADD misc/startup.sh-centos /startup.sh
+ADD misc/startup.sh /startup.sh
 RUN chmod 755 /startup.sh
 
 # EXPOSE  22
