@@ -8,7 +8,6 @@ echo "Executing startup.sh"
 #cat /etc/environment
 #echo "********"
 #set -a
-#. /etc/environment
 
 echo "# env before **************************************"
 env
@@ -23,30 +22,11 @@ for var in $(env); do
         fi
 done
 
-
-
-echo "Executing custom startup's"
-for i in $(ls -1 /startup_*sh 2>/dev/null); do
-	echo "Execute $i"
-	sh -x $i
-	echo "Executed $i"
-done
-
-# ssh pubkey
-if [ ! -z "$SSH_PUBKEY" ]; then
-	echo "Setup SSH_PUBKEY"
-        mkdir /root/.ssh
-        chmod 600 /root/.ssh
-        echo $SSH_PUBKEY | base64 -d > /root/.ssh/authorized_keys2
-        chmod 600 /root/.ssh/authorized_keys2
-	ls -al /root/.ssh
-fi
-
 # newrelic
 if [ ! -z "$NEWRELIC_LICENSE" ]; then
-	nrsysmond-config --set license_key=$NEWRELIC_LICENSE
-	sed -i s/autostart=false/autostart=true/ /etc/supervisor/conf.d/newrelic.conf
-  newrelic-admin generate-config $NEWRELIC_LICENSE /newrelic.ini
+    nrsysmond-config --set license_key=$NEWRELIC_LICENSE
+    /usr/sbin/nrsysmond -c /etc/newrelic/nrsysmond.cfg
 fi
 
-/usr/bin/supervisord -n
+echo "Executing startup_app.sh"
+exec /startup_app.sh
