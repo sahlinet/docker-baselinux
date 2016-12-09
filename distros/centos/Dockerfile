@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-RUN yum update -y && yum upgrade -y &&  yum install -y git mercurial && yum clean all -y
+RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && yum update -y && yum upgrade -y &&  yum install -y git mercurial && yum clean all -y
 
 # startup
 RUN yum install -y python-setuptools

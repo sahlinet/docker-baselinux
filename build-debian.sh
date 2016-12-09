@@ -1,5 +1,5 @@
 cp distros/debian/Dockerfile .
-docker build -t bl-debian-v2:wheezy .
-docker tag -f bl-debian-v2:wheezy bl-debian-v2:latest
-docker tag -f bl-debian-v2:wheezy philipsahli/debian-v2:latest
+docker build -t bl-debian:wheezy .
+docker tag -f bl-debian:wheezy bl-debian:latest
+docker tag -f bl-debian:wheezy philipsahli/debian:latest
 rm Dockerfile

@@ -1,5 +1,5 @@
 #FROM philipsahli/debian:latest
-FROM philipsahli/debian-v2:latest
+FROM philipsahli/debian:latest
 
 # Install Nginx
 RUN apt-get install -y nginx
