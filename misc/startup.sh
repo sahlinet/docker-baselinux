@@ -22,10 +22,16 @@ for var in $(env); do
         fi
 done
 
-# newrelic
+# Setup New Relic
 if [ ! -z "$NEWRELIC_LICENSE" ]; then
-    nrsysmond-config --set license_key=$NEWRELIC_LICENSE
-    /usr/sbin/nrsysmond -c /etc/newrelic/nrsysmond.cfg
+    echo "Configure new relic daemon"
+    if [ "$EUID" -ne 0 ]; then
+        sudo nrsysmond-config --set license_key=$NEWRELIC_LICENSE
+        sudo /usr/sbin/nrsysmond -c /etc/newrelic/nrsysmond.cfg
+    else
+        nrsysmond-config --set license_key=$NEWRELIC_LICENSE
+        /usr/sbin/nrsysmond -c /etc/newrelic/nrsysmond.cfg
+    fi
 fi
 
 echo "Executing startup_app.sh"
